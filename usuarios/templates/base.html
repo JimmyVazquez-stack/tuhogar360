@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu hogar 360°</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tarjetas.css' %}">
+    <link rel="icon" href="{% static 'img\360.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <header class="header inicio">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="{% url 'usuarios' %}">
+                    <img src="{% static 'img/logo.svg' %}" alt="Logotipo de Bienes Raices">
+                </a>
+
+                <div class="mobile-menu">
+                    <img src="{% static 'img/barras.svg' %}" alt="icono menu responsive">
+                </div>
+
+                <div class="derecha">
+                    <img class="dark-mode-boton" src="{% static 'img/dark-mode.svg' %}">
+                    <nav class="navegacion">
+                        <a href="{% url 'nosotros' %}">Nosotros</a>
+                        <a href="{% url 'anuncios' %}">Anuncios</a>
+                        <a href="{% url 'blog' %}">Blog</a>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                        <a href="{% url 'registro' %}">Registrate</a>
+                    </nav>
+                </div>
+            </div> <!--.barra-->
+            <h1>Venta de Casas y Departamentos  Exclusivos de Lujo</h1>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer class="footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="nosotros.php">Nosotros</a>
+                <a href="anuncios.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contacto.php">Contacto</a>
+            </nav>
+        </div>
+        <p class="copyright">Todos los derechos Reservados 2023 &copy;</p>
+    </footer>
+
+    <script src="{% static 'js/bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
