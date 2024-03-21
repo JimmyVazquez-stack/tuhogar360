@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu hogar 360°</title>
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel="stylesheet" href="{% static 'css/tarjetas.css' %}">
     <link rel="icon" href="{% static 'img\360.png' %}" type="image/x-icon">
 
 </head>
 
 <body>
-
-    <header class="header inicio">
+    <header class="{% if request.path == '/' %}header inicio{% else %}header{% endif %}">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="{% url 'usuarios' %}">
@@ -33,7 +31,13 @@
                         <a href="{% url 'anuncios' %}">Anuncios</a>
                         <a href="{% url 'blog' %}">Blog</a>
                         <a href="{% url 'contacto' %}">Contacto</a>
-                        <a href="{% url 'registro' %}">Registrate</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'perfil' %}"> {{ user.username }} </a>
+                            <a href="{% url 'logout' %}">Cerrar sesión</a>
+                        {% else %}
+                            <a href="{% url 'ingreso' %}">Ingresa</a>
+                            <a href="{% url 'registro' %}">Registrate</a>
+                        {% endif %}
                     </nav>
                 </div>
             </div> <!--.barra-->
