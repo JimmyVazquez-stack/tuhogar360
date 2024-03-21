@@ -366,7 +366,7 @@ h4 {
 }
 
 .header {
-    background-color: #cc1616;
+    background-color: #000000;
     padding: 1rem 0 3rem
 }
 
@@ -760,4 +760,86 @@ h4 {
     padding-left: 1rem 0 3rem 0
 }
 
-/*# sourceMappingURL=app.css.map */
+/*# galeria blog */
+.containerg {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: none;
+    
+}
+
+.containerg .img_container {
+    width: 800px;
+    height: 500px;
+    margin-bottom: 40px;    
+}
+
+
+.containerg .img_container .main_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+    object-fit: cover;
+}
+
+.containerg .thumbnail_container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.containerg .thumbnail_container .thumbnail {
+    width: 135px;
+    height: 95px;
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: cover;
+    opacity: .7;
+    transition: .3s;
+}
+
+.containerg .thumbnail_container .thumbnail:hover {
+    opacity: 1;
+}
+
+.active {
+    opacity:  1 !important;
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+}
+/*boton 360*/
+
+.botton360{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    margin: 0;
+}
+.vista360-btn {
+display: inline-flex;
+align-items: center;
+padding: 5px;
+font-size: 15px;
+font-weight: bold;
+background-color: #4CAF50; /* Color de fondo del enlace */
+color: white; /* Color del texto */
+text-decoration: none; /* Quita la subrayado predeterminado del enlace */
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 15rem;
+}
+
+.vista360-btn img {
+width: 45px; /* Ajusta el tamaño de la imagen según sea necesario */
+margin-left: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.vista360-btn:hover {
+background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
+}

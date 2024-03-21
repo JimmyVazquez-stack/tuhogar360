@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'administrativos',
     'usuarios',
     'vista360',
+    'catalogo',
+    'blog',
     'crispy_forms',
     'crispy_bootstrap4',
 ]

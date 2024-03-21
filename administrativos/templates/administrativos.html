@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
 </head>
 <body>
     
-    <header class= "header <?php echo isset ($inicio) ? 'inicio' : '';  ?>">
+    <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="index.php">
@@ -34,11 +34,7 @@
                         <a href="login.php">Registrate</a>
                     </nav>
                 </div>    
-                 
+                <div>{% if request.path == '/' %}<h1>"Panel del admin"</h1>{% endif %}</div>
             </div> <!--.barra-->
-            
-            <?php if (isset($inicio)) { ?>
-                <h1>Venta de Casas y Departamentos  Exclusivos de Lujo</h1>
-            <?php  } ?>;
         </div>
     </header>

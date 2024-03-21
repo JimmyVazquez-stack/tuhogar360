@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <header class="{% if request.path == '/' %}header inicio{% else %}header{% endif %}">
+    <header class="{% if request.path == '/' %} header inicio
+                   {% else %} header
+                   {% endif %}">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="{% url 'usuarios' %}">
@@ -32,16 +34,20 @@
                         <a href="{% url 'blog' %}">Blog</a>
                         <a href="{% url 'contacto' %}">Contacto</a>
                         {% if user.is_authenticated %}
-                            <a href="{% url 'perfil' %}"> {{ user.username }} </a>
-                            <a href="{% url 'logout' %}">Cerrar sesión</a>
+                        <a href="{% url 'perfil' %}"> {{ user.username }} </a>
+                        <a href="{% url 'logout' %}">Cerrar sesión</a>
                         {% else %}
-                            <a href="{% url 'ingreso' %}">Ingresa</a>
-                            <a href="{% url 'registro' %}">Registrate</a>
+                        <a href="{% url 'ingreso' %}">Ingresa</a>
+                        <a href="{% url 'registro' %}">Registrate</a>
                         {% endif %}
                     </nav>
                 </div>
             </div> <!--.barra-->
-            <h1>Venta de Casas y Departamentos  Exclusivos de Lujo</h1>
+            <div>
+                {% if request.path == '/' %}
+                <h1>"Venta de Casas y Departamentos Exclusivos de Lujo"</h1>
+                {% endif %}
+            </div>
         </div>
     </header>
     {% block content %}
@@ -49,10 +55,10 @@
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
             <nav class="navegacion">
-                <a href="nosotros.php">Nosotros</a>
-                <a href="anuncios.php">Anuncios</a>
-                <a href="blog.php">Blog</a>
-                <a href="contacto.php">Contacto</a>
+                <a href="{% url 'nosotros'%}">Nosotros</a>
+                <a href="{% url 'anuncios'%}">Anuncios</a>
+                <a href="{% url 'blog'%}">Blog</a>
+                <a href="{% url 'contacto'%}">Contacto</a>
             </nav>
         </div>
         <p class="copyright">Todos los derechos Reservados 2023 &copy;</p>
