@@ -1,1 +1,1 @@
-web: gunicorn tuhogar360.wsgi
+web: gunicorn hogar360.wsgi --log-file -
