@@ -1,1 +1,1 @@
-web: gunicorn hogar360.wsgi
+web: gunicorn tuhogar360.wsgi
