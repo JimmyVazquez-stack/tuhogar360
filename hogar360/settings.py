@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'crispy_bootstrap4',
-    'whithenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
