@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn hogar360.wsgi
+web: python manage.py collectstatic && gunicorn hogar360.wsgi
