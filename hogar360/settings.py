@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'administrativos',
     'usuarios',
     'vista360',
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'crispy_bootstrap4',
-    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
