@@ -1,1 +1,1 @@
-web: python manage.py collectstatic && gunicorn hogar360.wsgi
+web: gunicorn hogar360.wsgi
