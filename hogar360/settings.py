@@ -140,3 +140,7 @@ CRISPY_ALLOED_TEMPLATED_PACK = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = '/'
+
+CSRF_TRUSTED_ORIGINS = [
+    'tuhogar360-production.up.railway.app'
+]
