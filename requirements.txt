@@ -2,6 +2,3 @@ crispy-bootstrap4==2024.1
 Django==4.2
 django-crispy-forms==2.1
 gunicorn
-dj-database-url
-psycopg2-binary
-django-heroku

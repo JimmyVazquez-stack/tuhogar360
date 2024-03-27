@@ -1,1 +1,0 @@
-web: gunicorn hogar360.wsgi --log-file -
