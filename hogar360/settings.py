@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-(wq^r3+hjx+#*)&wj7o2hpznwf81spwz^1#x$+p)4dszbr=a!b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360-production.up.railway.app/', 'tuhogar360-production.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app/']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -161,6 +165,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Obtén el dominio de tu aplicación en Railway desde la variable de entorno
 
 # Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
-ALLOWED_HOSTS = ['*']
-
-CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app/']
