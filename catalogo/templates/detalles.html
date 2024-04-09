@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<body>
+    <h1>Detalles de la Propiedad</h1>
+    <div>
+        <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de la propiedad">
+        <h2>{{ propiedad.direccion }}</h2>
+        <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+        <p><strong>Baños:</strong> {{ propiedad.num_baños }}</p>
+        <p><strong>Ubicación:</strong> {{ propiedad.direccion }}</p>
+        <p><strong>Habitaciones:</strong> {{ propiedad.num_habitaciones }}</p>
+        <!-- Aquí puedes mostrar más detalles de la propiedad según tus necesidades -->
+    </div>
+</body>
 <main class="contenedor seccion contenido-centrado">
     <h1>Casa en Venta frente al bosque</h1>
     <!--Galeria-->

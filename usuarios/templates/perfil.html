@@ -1,1 +1,30 @@
-hola
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <h1>Detalles del Perfil</h1>
+    <div class="container">
+        <div class="imagen-perfil">
+            {% if perfil.imagen_perfil %}
+                <img src="{{ perfil.imagen_perfil.url }}" alt="Imagen de perfil">
+            {% else %}
+                <!-- Mostrar una imagen de placeholder si no hay imagen de perfil -->
+                <img src="https://via.placeholder.com/150" alt="Imagen de perfil">
+            {% endif %}
+        </div>
+        <div class="datos-perfil">
+        <p><strong>Usuario:</strong> {{ perfil.username }}</p>
+        <p><strong>Nombre:</strong> {{ perfil.first_name }}</p>
+        <p><strong>Apellido:</strong> {{ perfil.last_name }}</p>
+        <p><strong>Direccion:</strong> {{ perfil.direccion }}</p>
+        <p><strong>Telefono:</strong> {{ perfil.telefono }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>
+        <p><strong>Sexo: </strong>{{ perfil.sexo }}</p>
+        <p><strong>Email: </strong> {{ perfil.email }}</p>
+            <!-- Agrega más campos según tu modelo de perfil -->
+            <a class="a" href="{% url 'editar_perfil'%}">Editar Perfil</a>
+        </div>
+    </div>
+</body>
+{% endblock %}

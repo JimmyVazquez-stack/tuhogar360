@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu hogar 360°</title>
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
     <link rel="stylesheet" href="{% static 'css/tarjetas.css' %}">
     <link rel="icon" href="{% static 'img\360.png' %}" type="image/x-icon">
 
@@ -29,9 +30,12 @@
                 <div class="derecha">
                     <img class="dark-mode-boton" src="{% static 'img/dark-mode.svg' %}">
                     <nav class="navegacion">
+                        {% if user.is_vendedorTuHogar360%}
+                        <a href="{% url 'mis_publicaciones' username=user.username %}">Mis publicaciones</a>
+                        {% endif %}
                         <a href="{% url 'nosotros' %}">Nosotros</a>
                         <a href="{% url 'anuncios' %}">Anuncios</a>
-                        <a href="{% url 'blog' %}">Blog</a>
+                        <a href="{% url 'inicioblog' %}">Blog</a>
                         <a href="{% url 'contacto' %}">Contacto</a>
                         {% if user.is_authenticated %}
                         <a href="{% url 'perfil' %}"> {{ user.username }} </a>
@@ -57,7 +61,7 @@
             <nav class="navegacion">
                 <a href="{% url 'nosotros'%}">Nosotros</a>
                 <a href="{% url 'anuncios'%}">Anuncios</a>
-                <a href="{% url 'blog'%}">Blog</a>
+                <a href="{% url 'inicioblog'%}">Blog</a>
                 <a href="{% url 'contacto'%}">Contacto</a>
             </nav>
         </div>

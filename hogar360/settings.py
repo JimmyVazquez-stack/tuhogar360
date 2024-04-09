@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'administrativos',
     'usuarios',
-    'vista360',
     'catalogo',
     'blog',
     'crispy_forms',
@@ -129,7 +128,11 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'usuarios/static'),
+    os.path.join(BASE_DIR, 'administrativos/static'),
+    os.path.join(BASE_DIR, 'catalogo/static'),
+    os.path.join(BASE_DIR, 'blog/static'),
+    os.path.join(BASE_DIR, 'imagenes_perfil'),
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -140,7 +143,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
-AUTH_USER_MODEL = 'usuarios.UsuarioPersonalizado'
+AUTH_USER_MODEL = 'usuarios.TuHogar360'
 
 
 CRISPY_ALLOED_TEMPLATED_PACK = "bootstrap4"
@@ -149,3 +152,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = '/'
 
+
+#Manejo de imagenes
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,23 +1,25 @@
-from django.http import HttpRequest
 from django.http.response import HttpResponse as HttpResponse
-from django.shortcuts import render
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, PerfilForm
+from .models import TuHogar360
 from django.urls import reverse_lazy
+from django.views.generic import DetailView, UpdateView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
+from catalogo.models import Propiedad
 
 # Create your views here.
-class UsuariosView(TemplateView):
+class UsuariosView(ListView):
+    model = Propiedad
     template_name = "inicio.html"
+    context_object_name = "propiedades"
+    paginate_by = 3
+
+    def get_queryset(self):
+        return Propiedad.objects.all().order_by('-fecha_publicacion')
 
 class NosotrosView(TemplateView):
     template_name = "nosotros.html"
-
-class AnunciosView(TemplateView):
-    template_name = "anuncios.html"
-
-class BlogView(TemplateView):
-    template_name = "blog.html"
 
 class ContactoView(TemplateView):
     template_name = "contacto.html"
@@ -46,5 +48,19 @@ class CustomLogoutView(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         return response
     
-class PerfilUsuarioView(TemplateView):
+class PerfilUsuarioView(LoginRequiredMixin, DetailView):
+    model = TuHogar360
     template_name = 'perfil.html'
+    context_object_name = 'perfil'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+    
+class PerfilUpdateView(LoginRequiredMixin, UpdateView):
+    model = TuHogar360
+    form_class = PerfilForm
+    template_name = 'editar_perfil.html'
+    success_url = reverse_lazy('perfil')
+
+    def get_object(self, queryset=None):
+        return self.request.user

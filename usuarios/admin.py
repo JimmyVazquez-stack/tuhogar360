@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import UsuarioPersonalizado
+from .models import TuHogar360
 
-admin.site.register(UsuarioPersonalizado)
+admin.site.register(TuHogar360)

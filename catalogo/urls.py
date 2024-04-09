@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import DetallesCasaView
+from .views import DetallesCasaView, AnunciosView, Vista360View, MisPublicacionesView
 # Create your views here.
 urlpatterns = [
-    path('detalles/', DetallesCasaView.as_view(), name='detalles'),
-
+    path('anuncios/', AnunciosView.as_view(), name='anuncios'),
+    path('detalles/<int:propiedad_id>/', DetallesCasaView.as_view(), name='detalles'),
+    path('vista360/', Vista360View.as_view(), name='vista360'),
+    path('mis_publicaciones/<str:username>/', MisPublicacionesView.as_view(), name='mis_publicaciones'),
 ]
