@@ -166,3 +166,5 @@ RAILWAY_DOMAIN = os.getenv("RAILWAY_URL", "https://tuhogar360-production.up.rail
 
 # Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', RAILWAY_DOMAIN]
+
+CSRF_TRUSTED_ORIGINS = [RAILWAY_DOMAIN]
