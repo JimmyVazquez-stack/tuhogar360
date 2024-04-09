@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from .models import Propiedad  # Import the Propiedad model
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from usuarios.models import TuHogar360
-
+from .forms import PropiedadForm   # Import the PropiedadForm form
 
 class AnunciosView(ListView):
     model = Propiedad
@@ -35,3 +35,9 @@ class MisPublicacionesView(ListView):
         usuario = TuHogar360.objects.get(username=username)
         # Filtramos las propiedades relacionadas con el usuario actual
         return Propiedad.objects.filter(usuario=usuario)
+    
+class NuevaPublicaion(CreateView):
+    form_class = PropiedadForm
+    template_name = 'nueva_publicacion.html'
+    success_url = '/anuncios/mis_publicaciones/{{ request.user.username }}'
+     
