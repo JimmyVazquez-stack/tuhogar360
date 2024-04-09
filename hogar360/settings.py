@@ -132,7 +132,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'administrativos/static'),
     os.path.join(BASE_DIR, 'catalogo/static'),
     os.path.join(BASE_DIR, 'blog/static'),
-    os.path.join(BASE_DIR, 'imagenes_perfil'),
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
