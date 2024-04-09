@@ -160,3 +160,9 @@ LOGIN_REDIRECT_URL = '/'
 #Manejo de imagenes
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Obtén el dominio de tu aplicación en Railway desde la variable de entorno
+RAILWAY_DOMAIN = os.getenv("RAILWAY_URL", "https://tuhogar360-production.up.railway.app/")
+
+# Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', RAILWAY_DOMAIN]
