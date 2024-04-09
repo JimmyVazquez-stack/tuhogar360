@@ -163,4 +163,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app/']
