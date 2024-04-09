@@ -25,10 +25,12 @@ SECRET_KEY = 'django-insecure-(wq^r3+hjx+#*)&wj7o2hpznwf81spwz^1#x$+p)4dszbr=a!b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+RAILWAY_DOMAIN = os.getenv("RAILWAY_URL", "https://tuhogar360-production.up.railway.app")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360-production.up.railway.app/', 'tuhogar360-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360-production.up.railway.app/', 'tuhogar360-production.up.railway.app', 'RAILWAY_DOMAIN']
 
-CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app/']
+# Agrega el dominio de Railway a la lista de orígenes confiables para CSRF
+CSRF_TRUSTED_ORIGINS = [RAILWAY_DOMAIN]
 
 # Application definition
 
