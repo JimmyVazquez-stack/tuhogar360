@@ -161,6 +161,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Obtén el dominio de tu aplicación en Railway desde la variable de entorno
 
 # Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360-production.up.railway.app', 'tuhogar360-production.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app', 'tuhogar360-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://tuhogar360-production.up.railway.app']
