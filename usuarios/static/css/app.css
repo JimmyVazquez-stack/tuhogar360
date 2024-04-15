@@ -843,3 +843,13 @@ margin-left: 10px; /* Espacio entre la imagen y el texto */
 .vista360-btn:hover {
 background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
 }
+
+.container_banner {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 102, 255);
+    display: flex; /* Utilizamos Flexbox */
+}

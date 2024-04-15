@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/propiedad.css'%}">
 
 
+
 </main>
     <main class="contenedor seccion">
         <h1>Más Sobre Nosotros</h1>
@@ -29,6 +30,20 @@
             </div>
         </div>
     </main>
+
+    <div id= "banner" class="container_banner" style="
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #e08709;
+        display: flex; /* Utilizamos Flexbox */
+    ">
+        <img src="{% static 'img/banner.png' %}" alt="banner" srcset="">
+        <a href="/registro/" class="boton-amarillo" style="padding: 1rem 3rem; height: fit-content; top: 279px;
+        left: -287px; position: relative;">Registrarme</a>
+    </div>
 
     <section class="contenedor seccion">
         <h2>Casas y Depas en Venta</h2>
@@ -114,4 +129,12 @@
             </div>
         </section>
     </div>
+    <script>
+        document.getElementById("banner").style.display = "none";
+
+// Mostrar el banner emergente después de x milisegundos (por ejemplo, 5000 para 5 segundos)
+setTimeout(function() {
+    document.getElementById("banner").style.display = "flex";
+}, 5000); // Cambia este valor según el tiempo que desees
+    </script>
 {% endblock %}

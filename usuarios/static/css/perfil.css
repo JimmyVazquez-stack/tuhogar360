@@ -30,14 +30,24 @@ h1 {
 }
 p {
     margin: 10px 0;
-    color: #ac2e2e;
+    color: #000000;
 }
 .a {
-    color: #751c1c;
+    color: #000000; 
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
 }
 a:hover {
     text-decoration: underline;
+}
+
+.container_banner {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 102, 255);
+    display: flex; /* Utilizamos Flexbox */
 }
