@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import TuHogar360
+from .models import TuHogar360, Vendedor
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -36,3 +36,17 @@ class PerfilForm(forms.ModelForm):
         super(PerfilForm, self).__init__(*args, **kwargs)
         # Personaliza los widgets si es necesario
         self.fields['fecha_nacimiento'].widget.attrs.update({'class': 'datepicker'})  # Por ejemplo, puedes añadir una clase de datepicker para usar un selector de fecha
+
+    
+class VendedorForm(forms.ModelForm):
+    class Meta:
+        model = Vendedor
+        fields = ['curp', 'rfc', 'identificacion', 'user']  # Agrega 'user' al formulario
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # Obtén el usuario de los argumentos de la función
+        super().__init__(*args, **kwargs)
+        if user:
+            self.fields['user'].initial = user  # Establece el usuario como valor inicial para el campo 'user'
+
+    

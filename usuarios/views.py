@@ -1,5 +1,5 @@
 from django.http.response import HttpResponse as HttpResponse
-from .forms import CustomUserCreationForm, PerfilForm
+from .forms import CustomUserCreationForm, PerfilForm, VendedorForm
 from .models import TuHogar360
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView, ListView
@@ -17,12 +17,15 @@ class UsuariosView(ListView):
 
     def get_queryset(self):
         return Propiedad.objects.all().order_by('-fecha_publicacion')
+    
 
 class NosotrosView(TemplateView):
     template_name = "nosotros.html"
 
+
 class ContactoView(TemplateView):
     template_name = "contacto.html"
+
 
 class RegistroUsuarioView(CreateView):
     form_class = CustomUserCreationForm
@@ -30,6 +33,7 @@ class RegistroUsuarioView(CreateView):
     
     def get_success_url(self):
         return reverse_lazy('ingreso') # Redirecciona al login despues del registro
+
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
@@ -40,14 +44,16 @@ class CustomLoginView(LoginView):
             return reverse_lazy('admin:index')
         else:
             return reverse_lazy('usuarios')
-        
+
+
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('usuarios')
 
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
         return response
-    
+
+
 class PerfilUsuarioView(LoginRequiredMixin, DetailView):
     model = TuHogar360
     template_name = 'perfil.html'
@@ -55,6 +61,7 @@ class PerfilUsuarioView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
     
 class PerfilUpdateView(LoginRequiredMixin, UpdateView):
     model = TuHogar360
@@ -64,3 +71,14 @@ class PerfilUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+    
+
+class VendedorFormView(CreateView):
+    model = TuHogar360
+    form_class = VendedorForm
+    template_name = 'vendedores_form.html'
+    success_url = reverse_lazy('usuarios')
+
+    def form_valid(self, form):
+        form.instance.Tu = self.request.user
+        return super().form_valid(form)
