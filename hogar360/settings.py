@@ -90,6 +90,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+<<<<<<< HEAD
+=======
+'''
+>>>>>>> 71d9d6fbe018e3ed6d0f45e25d334bc4ff3879a3
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 #'ENGINE': 'django.db.backends.sqlite3',
@@ -106,6 +110,7 @@ DATABASES = {
 #       'PORT': '53648',
 #   }
 #}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

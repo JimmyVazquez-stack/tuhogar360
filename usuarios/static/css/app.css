@@ -77,8 +77,6 @@ img {
     border-style: none
 }
 
-button,
-input,
 optgroup,
 select,
 textarea {
@@ -88,37 +86,12 @@ textarea {
     margin: 0
 }
 
-button,
-input {
-    overflow: visible
-}
 
-button,
-select {
-    text-transform: none
-}
 
-[type=button],
-[type=reset],
-[type=submit],
-button {
-    -webkit-appearance: button
-}
 
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner,
-button::-moz-focus-inner {
-    border-style: none;
-    padding: 0
-}
 
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring,
-button:-moz-focusring {
-    outline: 1px dotted ButtonText
-}
+
+
 
 fieldset {
     padding: .35em .75em .625em
@@ -217,14 +190,7 @@ picture {
     display: block
 }
 
-h1,
-h2,
-h3 {
-    font-family: Lato, sans-serif;
-    margin: 2.5rem 0;
-    font-weight: 300;
-    text-align: center
-}
+
 
 h1 {
     font-size: 3.8rem
@@ -366,8 +332,9 @@ h4 {
 }
 
 .header {
-    background-color: #000000;
-    padding: 1rem 0 3rem
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
 .header.inicio {
@@ -407,11 +374,7 @@ h4 {
     padding-top: 2.5rem
 }
 
-.footer .navegacion {
-    visibility: visible;
-    opacity: 1;
-    height: auto
-}
+
 
 .footer .copyright {
     color: #fff;
@@ -462,44 +425,6 @@ h4 {
     }
 }
 
-.navegacion {
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
-    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear
-}
-
-@media (min-width:768px) {
-    .navegacion {
-        display: flex;
-        align-items: center;
-        opacity: 1;
-        visibility: visible
-    }
-}
-
-.navegacion a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 2.2rem;
-    display: block;
-    text-align: center
-}
-
-@media (min-width:768px) {
-    .navegacion a {
-        margin-right: 2rem;
-        font-size: 1.8rem
-    }
-
-    .navegacion a:last-of-type {
-        margin-right: 0
-    }
-}
-
-.navegacion a:hover {
-    color: #71b100
-}
 
 @media (min-width:768px) {
     .mobile-menu {
@@ -844,6 +769,7 @@ margin-left: 10px; /* Espacio entre la imagen y el texto */
 background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
 }
 
+<<<<<<< HEAD
 .container_banner {
     max-width: 800px;
     margin: 20px auto;
@@ -853,3 +779,45 @@ background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
     box-shadow: 0 0 10px rgb(0, 102, 255);
     display: flex; /* Utilizamos Flexbox */
 }
+=======
+
+/* estilos header mios */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+>>>>>>> 71d9d6fbe018e3ed6d0f45e25d334bc4ff3879a3

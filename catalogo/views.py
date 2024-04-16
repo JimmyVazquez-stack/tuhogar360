@@ -10,7 +10,6 @@ class AnunciosView(ListView):
     template_name = 'anuncios.html'
     context_object_name = 'propiedades'
     paginate_by = 6  # Número de propiedades por página
-
     def get_queryset(self):
         return Propiedad.objects.all().order_by('-fecha_publicacion')  # Ordena las propiedades por fecha de publicación descendente
 
@@ -39,5 +38,5 @@ class MisPublicacionesView(ListView):
 class NuevaPublicaion(CreateView):
     form_class = PropiedadForm
     template_name = 'nueva_publicacion.html'
-    success_url = '/anuncios/mis_publicaciones/{{ request.user.username }}'
+    success_url = '/catalogos/mis_publicaciones/{{ request.user.username }}'
      

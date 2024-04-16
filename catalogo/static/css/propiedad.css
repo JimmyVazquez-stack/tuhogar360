@@ -36,6 +36,8 @@
 }
 
 .descripcion {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
     font-size: 17px;
     color: #ffffff;
     margin-bottom: 1px;
@@ -67,8 +69,46 @@
     background-color: #000000;
 }
 
+<<<<<<< HEAD
 .p{
     color: black;
 }
 
 /* estilos contenedor banner */
+=======
+
+.containera {
+    background-color: #ffffff;
+    padding: 45px;
+    border-radius: 30px;
+    box-shadow: 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+h2 {
+    text-align: center;
+}
+form {
+    margin-top: 50px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+>>>>>>> 71d9d6fbe018e3ed6d0f45e25d334bc4ff3879a3

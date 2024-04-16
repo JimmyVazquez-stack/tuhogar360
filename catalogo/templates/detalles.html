@@ -1,20 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/propiedad.css'%}">
+
+
 <body>
     <h1>Detalles de la Propiedad</h1>
-    <link rel="stylesheet" href="{% static 'css/propiedad.css'%}">
-<main class="contenedor seccion contenido-centrado">
-    <div class="img_container">
-        <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de la propiedad">
-        <h2>{{ propiedad.direccion }}</h2>
-        <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
-        <p><strong>Baños:</strong> {{ propiedad.num_baños }}</p>
-        <p><strong>Ubicación:</strong> {{ propiedad.direccion }}</p>
-        <p><strong>Habitaciones:</strong> {{ propiedad.num_habitaciones }}</p>
-        <!-- Aquí puedes mostrar más detalles de la propiedad según tus necesidades -->
-    </div>
-</main>
+    <main class="contenedor seccion contenido-centrado">
+        <div class="img_container">
+            <div class="resumen-propiedad">
+                <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de la propiedad">
+                <h2>{{ propiedad.direccion }}</h2>
+                <ul class="iconos-caracteristicas">
+                    <li>
+                        <img class="icono" loading="lazy" src="{% static 'img/icono_wc.svg' %}" alt="icono wc">
+                        <p>{{ propiedad.num_baños }}</p>
+                    </li>
+                    <li>
+                        <img class="icono" loading="lazy" src="{% static 'img/icono_estacionamiento.svg' %}"
+                            alt="icono estacionamiento">
+                        <p> {{ propiedad.num_baños }}</p>
+                    </li>
+                    <li>
+                        <img class="icono" loading="lazy" src="{% static 'img/icono_dormitorio.svg' %}"
+                            alt="icono habitaciones">
+                        <p>{{ propiedad.num_habitaciones }}</p>
+                    </li>
+                </ul>
+                <!-- Aquí puedes mostrar más detalles de la propiedad según tus necesidades -->
+            </div>
+        </div>
+    </main>
 </body>
 <main class="contenedor seccion contenido-centrado">
     <h1>Casa en Venta frente al bosque</h1>
