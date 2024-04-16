@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
+{% if not user.vendedor.is_validando%}
 <main class="contenedor seccion">
     <div class="formulario">
         <fieldset>
@@ -15,5 +17,11 @@
         </fieldset>
     </div>
 </main>
-
+{% else %}
+<section class="imagen-contacto">
+    <h2>Gracias</h2>
+    <p>Estamos validando tu infomacion!!</p>
+    <a href="{% url 'usuarios' %}" class="boton-amarillo">Volver</a>
+</section>
+{% endif %}
 {% endblock %}

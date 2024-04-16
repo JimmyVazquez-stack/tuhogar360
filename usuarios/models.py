@@ -24,7 +24,7 @@ class TuHogar360(AbstractUser):
 class Vendedor(models.Model):
     user = models.OneToOneField(TuHogar360, on_delete=models.CASCADE)  # Relación uno a uno con el modelo de usuario
     is_vendedorTuHogar360 = models.BooleanField(default=False)  # Campo para identificar que es un vendedor
-    is_validado = models.BooleanField(default=False)  # Campo para validar si el vendedor ha sido validado
+    is_validando = models.BooleanField(default=True)  # Campo para validar si el vendedor ha sido validado
     curp = models.CharField(max_length=18)  # Campo para el CURP del vendedor
     rfc = models.CharField(max_length=13)  # Campo para el RFC del vendedor
     identificacion = models.FileField(upload_to='identificaciones/')  # Campo para cargar el archivo de identificación

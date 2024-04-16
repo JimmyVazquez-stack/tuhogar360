@@ -10,5 +10,5 @@ urlpatterns = [
     path('logout/', CustomLogoutView.as_view(), name='logout' ),
     path('perfil/', PerfilUsuarioView.as_view(), name='perfil'),
     path('perfil/editar/', PerfilUpdateView.as_view(), name='editar_perfil'),
-    path('venderdores/', VendedorFormView.as_view(), name='vendedores_form'),   
+    path('vendedores/', VendedorFormView.as_view(), name='vendedores_form'),   
 ]

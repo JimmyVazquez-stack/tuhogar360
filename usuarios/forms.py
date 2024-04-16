@@ -41,12 +41,18 @@ class PerfilForm(forms.ModelForm):
 class VendedorForm(forms.ModelForm):
     class Meta:
         model = Vendedor
-        fields = ['curp', 'rfc', 'identificacion', 'user']  # Agrega 'user' al formulario
+        fields = ['curp', 'rfc', 'identificacion']  # Agrega 'user' al formulario
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)  # Obtén el usuario de los argumentos de la función
         super().__init__(*args, **kwargs)
-        if user:
-            self.fields['user'].initial = user  # Establece el usuario como valor inicial para el campo 'user'
+        self.user = user  # Guarda el usuario en el formulario
+
+    def save(self, commit=True):
+        vendedor = super().save(commit=False)
+        vendedor.user = self.user
+        if commit:
+            vendedor.save()
+        return vendedor
 
     

@@ -41,7 +41,7 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         user = self.request.user
         if user.is_superuser:
-            return reverse_lazy('admin:index')
+            return reverse_lazy('usuarios')
         else:
             return reverse_lazy('usuarios')
 
@@ -73,12 +73,17 @@ class PerfilUpdateView(LoginRequiredMixin, UpdateView):
         return self.request.user
     
 
-class VendedorFormView(CreateView):
+class VendedorFormView(LoginRequiredMixin,CreateView):
     model = TuHogar360
     form_class = VendedorForm
     template_name = 'vendedores_form.html'
     success_url = reverse_lazy('usuarios')
 
     def form_valid(self, form):
-        form.instance.Tu = self.request.user
+        form.instance.usuario = self.request.user
         return super().form_valid(form)
+    
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs

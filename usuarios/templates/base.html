@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu hogar 360°</title>
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
     <link rel="stylesheet" href="{% static 'css/tarjetas.css' %}">
     <link rel="icon" href="{% static 'img\360.png' %}" type="image/x-icon">
 
@@ -29,13 +28,19 @@
 
                 <div class="derecha">
                     <img class="dark-mode-boton" src="{% static 'img/dark-mode.svg' %}">
-                    <nav>
+                    <nav>            
                         <ul>
-                            {% if not user.is_authenticated or not user.vendedor.is_vendedorTuHogar360 %}
-                                {% if not user.is_authenticated %}
-                                <li><a href="{% url 'registro' %}">¿Quieres publicar?</a></li>
-                                {% else %}
-                                <li><a href="{% url 'vendedores_form' %}">¿Quieres publicar?</a></li>
+                            {% if user.is_superuser %}
+                            <li>
+                                <a href="{% url 'administrativos' %}">Administracion</a>
+                            </li>
+                            {% else %}
+                                {% if not user.is_authenticated or not user.vendedor.is_vendedorTuHogar360 %}
+                                    {% if not user.is_authenticated %}
+                                    <li><a href="{% url 'registro' %}">¿Quieres publicar?</a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'vendedores_form' %}">¿Quieres publicar?</a></li>
+                                    {% endif %}
                                 {% endif %}
                             {% endif %}
                             <li class="dropdown">

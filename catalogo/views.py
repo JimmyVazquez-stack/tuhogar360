@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, DetailView
 from .models import Propiedad  # Import the Propiedad model
 from django.views.generic import ListView, CreateView
@@ -35,8 +36,18 @@ class MisPublicacionesView(ListView):
         # Filtramos las propiedades relacionadas con el usuario actual
         return Propiedad.objects.filter(usuario=usuario)
     
-class NuevaPublicaion(CreateView):
+    
+class NuevaPublicacion(LoginRequiredMixin, CreateView):
+    model = Propiedad
     form_class = PropiedadForm
     template_name = 'nueva_publicacion.html'
     success_url = '/catalogos/mis_publicaciones/{{ request.user.username }}'
-     
+
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
+    
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
