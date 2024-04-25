@@ -86,17 +86,17 @@
     </header>
     {% block content %}
     {% endblock %}
-    <footer class="footer seccion">
+    <div class="footer seccion">
         <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
+            <nav class="">
                 <a href="{% url 'nosotros'%}">Nosotros</a>
                 <a href="{% url 'anuncios'%}">Anuncios</a>
                 <a href="{% url 'inicioblog'%}">Blog</a>
                 <a href="{% url 'contacto'%}">Contacto</a>
             </nav>
         </div>
-        <p class="copyright">Todos los derechos Reservados 2023 &copy;</p>
-    </footer>
+        <p class="copyright">Todos los derechos Reservados 2023 & copy;</p>
+    </div>
 
     <script src="{% static 'js/bundle.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
