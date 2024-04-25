@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, View
 from django.utils import timezone
 
 #Stripe imporation
-import stripe
+import stripe # type: ignore
 from django.conf import settings    
 from django.http import JsonResponse
 from django.views import View
@@ -13,35 +13,6 @@ from .models import Product
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-class SubscribeView(TemplateView):
-    template_name = 'subscribe.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['levels'] = SubscriptionLevel.objects.all()
-        return context
-
-    def post(self, request, *args, **kwargs):
-        level_id = request.POST.get('level_id')
-        level = SubscriptionLevel.objects.get(pk=level_id)
-        UserSubscription.objects.create(
-            user=request.user,
-            subscription_level=level,
-            end_date=timezone.now() + timezone.timedelta(days=30)  # Suscripción mensual por defecto
-        )
-        return redirect('subscription_success')
-
-class SubscriptionSuccessView(TemplateView):
-    template_name = 'subscription_success.html'
-
-class ManageSubscriptionView(TemplateView):
-    template_name = 'manage_subscription.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_subscription = UserSubscription.objects.get(user=self.request.user)
-        context['user_subscription'] = user_subscription
-        return context
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
