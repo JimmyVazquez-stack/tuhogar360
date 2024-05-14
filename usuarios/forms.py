@@ -1,12 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import TuHogar360, Vendedor
+from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
-        model = TuHogar360
+        model = CustomUser
         fields = ("username", "email", "password1", "password2")
 
     def save(self, commit=True):
@@ -29,15 +29,15 @@ class RegistroForm(forms.Form):
 
 class PerfilForm(forms.ModelForm):
     class Meta:
-        model = TuHogar360
-        fields = ['imagen_perfil', 'username', 'first_name', 'last_name', 'direccion', 'email', 'fecha_nacimiento', 'sexo']
+        model = CustomUser
+        fields = [ 'username', 'first_name', 'last_name', 'email',]
 
     def __init__(self, *args, **kwargs):
         super(PerfilForm, self).__init__(*args, **kwargs)
         # Personaliza los widgets si es necesario
         self.fields['fecha_nacimiento'].widget.attrs.update({'class': 'datepicker'})  # Por ejemplo, puedes añadir una clase de datepicker para usar un selector de fecha
 
-    
+''' 
 class VendedorForm(forms.ModelForm):
     class Meta:
         model = Vendedor
@@ -54,5 +54,5 @@ class VendedorForm(forms.ModelForm):
         if commit:
             vendedor.save()
         return vendedor
-
+'''
     

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import TuHogar360, Vendedor
+from .models import CustomUser
 
-admin.site.register(TuHogar360)
-admin.site.register(Vendedor)
+admin.site.register(CustomUser)

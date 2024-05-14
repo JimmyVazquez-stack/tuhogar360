@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from usuarios.models import TuHogar360
+from usuarios.models import CustomUser
 
 # Create your views here.
 class AdministrativosView(ListView):
-   model = TuHogar360
+   model = CustomUser
    template_name = 'administrativos.html'
    context_object_name = 'list_usuarios'
 
    def get_queryset(self):
-      return TuHogar360.objects.all()
+      return CustomUser.objects.all()
     
