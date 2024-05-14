@@ -1,18 +1,10 @@
 from django.urls import path
-from .views import (SubscribeView, 
-                    SubscriptionSuccessView, 
-                    ManageSubscriptionView,
-                    CreateCheckoutSessionView,
-                    SuccessView,
-                    CancelView,
-                    ProductLandingPageView)
+
+from . import views
 
 urlpatterns = [
-    path('subscribe/', SubscribeView.as_view(), name='subscribe'),
-    path('subscription_success/', SubscriptionSuccessView.as_view(), name='subscription_success'),
-    path('manage_subscription/', ManageSubscriptionView.as_view(), name='manage_subscription'), 
-    path('cancel/', CancelView.as_view(), name='cancel'),
-    path('success/', SuccessView.as_view(), name='success'),
-    path('create-checkout-session/<pk>/', CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
-    path('', ProductLandingPageView.as_view(), name='landing'),
+    path("pricing-page/", views.pricing_page, name="pricing_page"),
+    path("subscription-confirm/", views.subscription_confirm, name="subscription_confirm"),
+    path("create-portal-session/", views.create_portal_session, name="create_portal_session"),
+    path("subscription-details/", views.create_portal_session, name="subscription_details"),
 ]

@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse as HttpResponse
-from .forms import CustomUserCreationForm, PerfilForm, VendedorForm
-from .models import TuHogar360
+from .forms import CustomUserCreationForm, PerfilForm
+from .models import CustomUser
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -55,7 +55,7 @@ class CustomLogoutView(LogoutView):
 
 
 class PerfilUsuarioView(LoginRequiredMixin, DetailView):
-    model = TuHogar360
+    model = CustomUser
     template_name = 'perfil.html'
     context_object_name = 'perfil'
 
@@ -64,7 +64,7 @@ class PerfilUsuarioView(LoginRequiredMixin, DetailView):
 
     
 class PerfilUpdateView(LoginRequiredMixin, UpdateView):
-    model = TuHogar360
+    model = CustomUser
     form_class = PerfilForm
     template_name = 'editar_perfil.html'
     success_url = reverse_lazy('perfil')
@@ -72,9 +72,9 @@ class PerfilUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
     
-
+'''
 class VendedorFormView(LoginRequiredMixin,CreateView):
-    model = TuHogar360
+    model = CustomUser
     form_class = VendedorForm
     template_name = 'vendedores_form.html'
     success_url = reverse_lazy('usuarios')
@@ -87,3 +87,5 @@ class VendedorFormView(LoginRequiredMixin,CreateView):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
+
+'''

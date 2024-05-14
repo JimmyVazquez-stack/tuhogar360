@@ -35,12 +35,8 @@
                                 <a href="{% url 'administrativos' %}">Administracion</a>
                             </li>
                             {% else %}
-                                {% if not user.is_authenticated or not user.vendedor.is_vendedorTuHogar360 %}
-                                    {% if not user.is_authenticated %}
-                                    <li><a href="{% url 'registro' %}">¿Quieres publicar?</a></li>
-                                    {% else %}
-                                    <li><a href="{% url 'vendedores_form' %}">¿Quieres publicar?</a></li>
-                                    {% endif %}
+                                {% if not user.subscription.status == 'active' or not user.is_authenticated %}
+                                    <li><a href="{% url 'create_portal_session' %}">¿Quieres publicar?</a></li>
                                 {% endif %}
                             {% endif %}
                             <li class="dropdown">
@@ -57,8 +53,9 @@
                                 <a>{{ user.username }}</a>
                                 <div class="dropdown-content">
                                     <a href="{% url 'perfil' %}"> Mi perfil</a>
-                                    {% if user.vendedor.is_vendedorTuHogar360 %}
-                                    <a href="{% url 'mis_publicaciones' username=user.username %}">Mis publicaciones</a>
+                                    {% if user.subscription.status == 'active' %}
+                                    <a href="{% url 'create_portal_session' %}"> Tu suscripcion</a>
+                                    <a href="{% url 'mis_publicaciones' username=user.username %}">Mis propiedades</a>
                                     {% endif %}
                                     <a href="{% url 'logout' %}">Cerrar sesión</a>  
                                 </div>
@@ -71,6 +68,12 @@
                                 <a href="{% url 'registro' %}">Registrate</a>
                             </li>
                             {% endif %}
+                            <li class="dropdown">  
+                                  
+                                <div class="dropdown-content">
+                                    <a href=""></a>
+                                </div>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -86,17 +89,17 @@
     </header>
     {% block content %}
     {% endblock %}
-    <footer class="footer seccion">
+    <div class="footer seccion">
         <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
+            <nav class="">
                 <a href="{% url 'nosotros'%}">Nosotros</a>
                 <a href="{% url 'anuncios'%}">Anuncios</a>
                 <a href="{% url 'inicioblog'%}">Blog</a>
                 <a href="{% url 'contacto'%}">Contacto</a>
             </nav>
         </div>
-        <p class="copyright">Todos los derechos Reservados 2023 &copy;</p>
-    </footer>
+        <p class="copyright">Todos los derechos Reservados 2023 & copy;</p>
+    </div>
 
     <script src="{% static 'js/bundle.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>

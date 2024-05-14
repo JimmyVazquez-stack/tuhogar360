@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, DetailView
 from .models import Propiedad  # Import the Propiedad model
 from django.views.generic import ListView, CreateView
-from usuarios.models import TuHogar360
+from usuarios.models import CustomUser
 from .forms import PropiedadForm   # Import the PropiedadForm form
 
 class AnunciosView(ListView):
@@ -32,7 +32,7 @@ class MisPublicacionesView(ListView):
         # Obtenemos el nombre de usuario del usuario actual
         username = self.request.user.username
         # Obtenemos el objeto TuHogar360 del usuario actual
-        usuario = TuHogar360.objects.get(username=username)
+        usuario = CustomUser.objects.get(username=username)
         # Filtramos las propiedades relacionadas con el usuario actual
         return Propiedad.objects.filter(usuario=usuario)
     

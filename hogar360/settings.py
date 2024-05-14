@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'subscriptions',
     'crispy_forms',
     'crispy_bootstrap4',
+    'djstripe',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'hogar360.urls'
@@ -119,7 +121,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'es-MX'
+LANGUAGES = [
+    ('es', 'Spanish'),
+    ('es-mx', 'Spanish (Mexico)'),
+]
+
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Mexico_City'
 
@@ -150,7 +157,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
-AUTH_USER_MODEL = 'usuarios.TuHogar360'
+AUTH_USER_MODEL = 'usuarios.CustomUser'
 
 
 CRISPY_ALLOED_TEMPLATED_PACK = "bootstrap4"
@@ -164,11 +171,13 @@ LOGIN_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Obtén el dominio de tu aplicación en Railway desde la variable de entorno
-
-# Agrega el dominio de Railway a la lista de ALLOWED_HOSTS
-
+#Stripe settings email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Stripe settings
-STRIPE_PUBLIC_KEY = "pk_test_51ODKwZEVbfr5OPjDTHqJu0rMsA8ZiWpbnf5cWvjBsX8IrTqViXbGUFr3pyqFZDkuGpIBvFyUMAvE955bxdyYDfgx00ZM62NB0V"
-STRIPE_SECRET_KEY = "sk_test_51ODKwZEVbfr5OPjD1nyyolXyJfGoZjBJXUNJSA9dcDtaLWCiMnQff2TakKP8lWTKR1Vg0Dbgd3sbj6cAiv1YkcfV00bQ3rxBct"
+STRIPE_TEST_PUBLIC_KEY = os.environ.get("STRIPE_TEST_PUBLIC_KEY", "pk_test_51ODKwZEVbfr5OPjDTHqJu0rMsA8ZiWpbnf5cWvjBsX8IrTqViXbGUFr3pyqFZDkuGpIBvFyUMAvE955bxdyYDfgx00ZM62NB0V")
+STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY", "sk_test_51ODKwZEVbfr5OPjD1nyyolXyJfGoZjBJXUNJSA9dcDtaLWCiMnQff2TakKP8lWTKR1Vg0Dbgd3sbj6cAiv1YkcfV00bQ3rxBct")
+STRIPE_LIVE_MODE = False
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
+DJSTRIPE_WEBHOOK_SECRET = os.environ.get("DJSTRIPE_WEBHOOK_SECRET", "whsec_09501c4a4ec76443530a09aaf35f5a72858b9c733a8b75ab568ea0ca57bc3ccb")
+STRIPE_PRICING_TABLE_ID = "prctbl_1PDaVBEVbfr5OPjDHJcLHtOK"
