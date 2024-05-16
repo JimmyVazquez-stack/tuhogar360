@@ -1,3 +1,16 @@
+// funcionalidad cookies//
+
+document.getElementById('btn-aceptar-cookies').addEventListener('click', function() {
+    var avisoCookies = document.getElementById('aviso-cookies');
+    var fondoAvisoCookies = document.getElementById('fondo-aviso-cookies');
+
+    // Ocultar el aviso de cookies y el fondo
+    avisoCookies.style.display = 'none';
+    fondoAvisoCookies.style.display = 'none';
+});
+
+
+
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);//manda a llmaar a la funcion
 document.getElementById("btn__registrarse").addEventListener("click", register);
 window.addEventListener("resize",anchoPagina)
@@ -72,3 +85,5 @@ function anchoPagina()
     }
 }
 anchoPagina();//se ejecuta para que no se encimen las letras al recargar la pagina en modo responsive 
+
+

@@ -18,6 +18,8 @@ class UsuariosView(ListView):
     def get_queryset(self):
         return Propiedad.objects.all().order_by('-fecha_publicacion')
     
+class AvisoCookiesView(TemplateView):
+    template_name = "aviso-cookies.html"
 
 class NosotrosView(TemplateView):
     template_name = "nosotros.html"
