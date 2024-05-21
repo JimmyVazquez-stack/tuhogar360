@@ -10,6 +10,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
+    border-bottom: 30px;
 }
 
 main {
@@ -318,13 +319,19 @@ h4 {
 
 .dark-mode .formulario label,
 .dark-mode .formulario legend,
-.dark-mode .formulario p {
+.dark-mode .formulario p
+.dark-mode .contenedor-perfil label,
+.dark-mode .contenedor-perfil legend,
+.dark-mode .contenedor-perfil p{
     color: #e1e1e1
 }
 
 .dark-mode .formulario input:not([type=submit]),
 .dark-mode .formulario select,
-.dark-mode .formulario textarea {
+.dark-mode .formulario textarea
+.dark-mode .contenedor-perfil input:not([type=submit]),
+.dark-mode .contenedor-perfil select,
+.dark-mode .contenedor-perfil textarea{
     background-color: #333;
     border: 1px solid #333;
     color: #fff
@@ -372,6 +379,7 @@ h4 {
 }
 
 .footer {
+    margin-top: 100px;
     position: block;
     bottom: 0;
     width: 100%;
@@ -655,7 +663,10 @@ h4 {
 
 .formulario input:not([type=submit]),
 .formulario select,
-.formulario textarea {
+.formulario textarea,
+.contenedor-perfil input:not([type=submit]),
+.contenedor-perfil select,
+.contenedor-perfil textarea {
     padding: 1rem;
     display: block;
     width: 100%;
@@ -826,4 +837,94 @@ nav ul li a {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.imagen-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dark-mode .contenedor-perfil {
+    max-width: 650px;  /* Ancho máximo del contenedor */
+    max-height: 1500px; /* Altura máxima del contenedor */
+    background-color: #000000;
+    padding: 10px; /* Espacio interno alrededor del contenido */
+    overflow: auto; /* Añadir barra de desplazamiento si el contenido es demasiado grande */
+}
+
+.contenedor-perfil {
+    max-width: 500px;  /* Ancho máximo del contenedor */
+    max-height: 1500px; /* Altura máxima del contenedor */
+    background-color: #ffffff;
+    padding: 10px; /* Espacio interno alrededor del contenido */
+    overflow: auto; /* Añadir barra de desplazamiento si el contenido es demasiado grande */
+}
+
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+
+
+form#search-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex; 
+    align-items: center; 
+}
+
+form#search-form input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+form#search-form button[type="submit"] {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+form#search-form button[type="submit"] img {
+    width: 40px; 
+    height: 40px;/* ajusta el tamaño de la imagen de la lupa */
+}
+
+
+.cookie-consent {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000000;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.cookie-consent p {
+    display: inline;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.cookie-consent .btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cookie-consent .btn:hover {
+    background-color: #45a049;
 }

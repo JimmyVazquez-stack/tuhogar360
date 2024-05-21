@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from catalogo.models import Propiedad
+from django.http import JsonResponse
 
 # Create your views here.
 class UsuariosView(ListView):
@@ -72,20 +73,10 @@ class PerfilUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
     
-'''
-class VendedorFormView(LoginRequiredMixin,CreateView):
-    model = CustomUser
-    form_class = VendedorForm
-    template_name = 'vendedores_form.html'
-    success_url = reverse_lazy('usuarios')
+def accept_cookies(request):
+    response = JsonResponse({'status': 'ok'})
+    response.set_cookie('accept_cookies', 'true', max_age=365 * 24 * 60 * 60)
+    return response
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        return super().form_valid(form)
-    
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['user'] = self.request.user
-        return kwargs
-
-'''
+class PrivacyPolicyView(TemplateView):
+    template_name = 'privacy_policy.html'

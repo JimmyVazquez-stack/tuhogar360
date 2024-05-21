@@ -4,7 +4,14 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/propiedad.css'%}">
 <main class="contenedor seccion">
+    <form id="search-form" method="get">
+        {{ form.as_p }}
+        <button type="submit" class="search-button" ><img src="{% static 'img/R.png' %}" alt="Buscar"></button>
+    </form>
     <h1>Propiedades de "{{ user.username }}"</h1>
+    <div class="boton-derecha">
+     <a href="{% url 'nueva_publicacion' %}" class="boton-verde">Nueva Publicación</a>
+    </div>
     <div class="propiedades">
         {% for propiedad in propiedades %}
         <div class="propiedad">
@@ -13,11 +20,9 @@
             <p class="detalles">Precio: ${{ propiedad.precio }} | Área: {{ propiedad.area }} m²</p>
             <a href="{% url 'detalles' propiedad.id %}" class="btn-ver-detalles">Ver Detalles</a>
         </div>
+        {% empty %}
+        <p>No hay propiedades para mostrar</p>
         {% endfor %}
-    </div>
-
-    <div>
-        <a href="{% url 'nueva_publicacion' %}" class="boton-verde">Nueva Publicación</a>
     </div>
 
 

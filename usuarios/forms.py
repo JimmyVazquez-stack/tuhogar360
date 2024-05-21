@@ -3,18 +3,23 @@ from django import forms
 from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
+    email = forms.EmailField(label='Correo Electrónico', widget=forms.EmailInput(attrs={'class': 'form-control'}))  
+    username = forms.CharField(label='Usuario', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label='Confirmar Contraseña', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    
     class Meta:
         model = CustomUser
         fields = ("username", "email", "password1", "password2")
 
-    def save(self, commit=True):
-        user = super(CustomUserCreationForm, self).save(commit=False)
-        user.email = self.cleaned_data["email"]
-        if commit:
-            user.save()
-        return user
+    def clean_password2(self):
+        # Verifica que las contraseñas coincidan
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Las contraseñas no coinciden")
+        return password2
+    
 
 class LoginForm(forms.Form):
     correo = forms.EmailField(label='Correo Electrónico')
@@ -28,6 +33,7 @@ class RegistroForm(forms.Form):
 
 
 class PerfilForm(forms.ModelForm):
+    username = forms.CharField(label='Usuario', widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = CustomUser
         fields = [ 'username', 'first_name', 'last_name', 'email',]
@@ -35,7 +41,7 @@ class PerfilForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PerfilForm, self).__init__(*args, **kwargs)
         # Personaliza los widgets si es necesario
-        self.fields['fecha_nacimiento'].widget.attrs.update({'class': 'datepicker'})  # Por ejemplo, puedes añadir una clase de datepicker para usar un selector de fecha
+      # Por ejemplo, puedes añadir una clase de datepicker para usar un selector de fecha
 
 ''' 
 class VendedorForm(forms.ModelForm):

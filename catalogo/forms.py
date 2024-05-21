@@ -19,3 +19,7 @@ class PropiedadForm(forms.ModelForm):
         if commit:
             propiedad.save()
         return propiedad
+    
+
+class BusquedaForm(forms.Form):
+    query = forms.CharField(label='', max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'Buscar...'}))
