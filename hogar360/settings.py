@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(wq^r3+hjx+#*)&wj7o2hpznwf81spwz^1#x$+p)4dszbr=a!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 RAILWAY_DOMAIN = os.getenv("RAILWAY_URL", "https://tuhogar360.up.railway.app")
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360.up.railway.app/', 'tuhogar360.up.railway.app', 'RAILWAY_DOMAIN']
