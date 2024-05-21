@@ -12,15 +12,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(wq^r3+hjx+#*)&wj7o2hpznwf81spwz^1#x$+p)4dszbr=a!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 RAILWAY_DOMAIN = os.getenv("RAILWAY_URL", "https://tuhogar360.up.railway.app")
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://tuhogar360.up.railway.app/', 'tuhogar360.up.railway.app', 'RAILWAY_DOMAIN']
 
+
+
+DEBUG = False
 # Agrega el dominio de Railway a la lista de orígenes confiables para CSRF
 CSRF_TRUSTED_ORIGINS = [RAILWAY_DOMAIN]
 
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -74,7 +79,7 @@ WSGI_APPLICATION = 'hogar360.wsgi.application'
 
 
 # Database
-'''
+''''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -180,3 +185,4 @@ STRIPE_LIVE_MODE = False
 DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
 DJSTRIPE_WEBHOOK_SECRET = os.environ.get("DJSTRIPE_WEBHOOK_SECRET", "whsec_09501c4a4ec76443530a09aaf35f5a72858b9c733a8b75ab568ea0ca57bc3ccb")
 STRIPE_PRICING_TABLE_ID = "prctbl_1PDaVBEVbfr5OPjDHJcLHtOK"
+
