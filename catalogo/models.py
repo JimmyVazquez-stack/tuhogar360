@@ -2,7 +2,7 @@ from django.db import models
 from usuarios.models import CustomUser
 
 class Propiedad(models.Model):
-    usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(CustomUser, related_name='propiedades', on_delete=models.CASCADE)
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     descripcion = models.TextField()
     direccion = models.CharField(max_length=255)

@@ -15,12 +15,14 @@
 </head>
 
 <body>
-    <div class="container"> 
+    <div class="container_1"> 
+    <a href="#" class="flecha" onclick="history.back(); return false;"></a>
     <h2>Registro</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Registrarse</button>
+            <a class="link" href="{% url 'ingreso' %}"> ¿Ya tienes cuenta? </a>
         </form>
     </div>
 </body>

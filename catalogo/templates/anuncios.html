@@ -3,7 +3,10 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/propiedad.css'%}">
 <main class="contenedor seccion">
-
+    <form id="search-form" method="get">
+        {{ form.as_p }}
+        <button type="submit" class="search-button" ><img src="{% static 'img/R.png' %}" alt="Buscar"></button>
+    </form>
     <h2>Casas y Depas en Venta</h2>
 
     <div class="propiedades">

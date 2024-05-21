@@ -36,7 +36,7 @@
                             </li>
                             {% else %}
                                 {% if not user.subscription.status == 'active' or not user.is_authenticated %}
-                                    <li><a href="{% url 'create_portal_session' %}">¿Quieres publicar?</a></li>
+                                    <li><a href="{% url 'pricing_page' %}">¿Quieres publicar?</a></li>
                                 {% endif %}
                             {% endif %}
                             <li class="dropdown">
