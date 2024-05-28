@@ -28,6 +28,7 @@ CSRF_TRUSTED_ORIGINS = [RAILWAY_DOMAIN]
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,24 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'djstripe',
 ]
+
+# Config Jaazzmin
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Tu Hogar 360",
+    "site_header": "Tu Hogar 360",
+    "site_brand": "Tu Hogar 360",
+    "welcome_sign": "Bienvenido a Tu Hogar 360",
+    "login_logo": "img/360.png",
+    "search_model": ["usuarios.CustomUser", "auth.Group"],
+    "hide_models": ["djstripe.card",
+                    "djstripe.applicationfee",
+                    "djstripe.applicationfeerefund",
+                    "djstripe.connectaccount",
+                    "djstripe.connectaccountrequest",
+                    "djstripe.coupon",
+                    "djstripe.bankaccount",],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +98,7 @@ WSGI_APPLICATION = 'hogar360.wsgi.application'
 
 
 # Database
-''''
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,14 +110,15 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 #'ENGINE': 'django.db.backends.sqlite3',
 #      'NAME': BASE_DIR / 'db.sqlite3',
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'MuNmSxGItlhIPBtltaHTgspECtboHWtj',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '56397',
+        'PASSWORD': 'vEftKAlQDniHOyVJfQjNjUFlaRmphTNh',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '38102',
     }
 }
 

@@ -2,7 +2,7 @@ asgiref==3.8.1
 certifi==2024.2.2
 charset-normalizer==3.3.2
 crispy-bootstrap4
-dj-stripe==2.7.0
+dj-stripe==2.8.0
 Django==4.0.10
 django-crispy-forms
 gunicorn==21.2.0
@@ -18,5 +18,5 @@ sqlparse==0.5.0
 stripe==3.0.0
 tzdata==2024.1
 urllib3==2.2.1
-whitenoise==6.6.0
-
+whitenoise==6.6.0 
+django-jazzmin
