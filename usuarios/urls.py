@@ -8,7 +8,8 @@ from .views import (UsuariosView,
                     PerfilUsuarioView, 
                     PerfilUpdateView,
                     accept_cookies,
-                    PrivacyPolicyView)
+                    PrivacyPolicyView,
+                    AvisoCookiesView)
 
 urlpatterns = [
     path('', UsuariosView.as_view(), name='usuarios'),
@@ -21,4 +22,5 @@ urlpatterns = [
     path('perfil/editar/', PerfilUpdateView.as_view(), name='editar_perfil'),
     path('accept-cookies/', accept_cookies, name='accept-cookies'),
     path('privacy-policy/', PrivacyPolicyView.as_view(), name='privacy-policy'),
+    path('aviso-cookies/', AvisoCookiesView.as_view(), name='aviso-cookies'),
 ]

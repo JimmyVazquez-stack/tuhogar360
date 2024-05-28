@@ -33,14 +33,14 @@
 <div class="contenedor-perfil">
     <fieldset>
         
-        <legend>Datos</legend>
+        <legend>Suscripción</legend>
             <div>
                 <p><strong>Plan:</strong> {{ user.subscription.plan.product.name }}</p>
                 <p><strong>Costo: </strong>{{ user.subscription.plan.amount }} mxn</p>
                 <p><strong>Periodo: </strong>{{ user.subscription.plan.interval }}</p>
                 <p><strong>Fecha de inicio: </strong>{{ user.subscription.current_period_start }}</p>
                 <p><strong>Fecha de fin: </strong>{{ user.subscription.current_period_end }}</p>
-                <p><strong>Benficios: </strong>{{ user.subscription.plan.product.description }}</p>
+                <p><strong>Beneficios: </strong>{{ user.subscription.plan.product.description }}</p>
                 <p><strong>Email asociado: </strong> {{ user.customer.email }}</p>
                 <p><strong>Estado de la suscripción: </strong>{{ user.subscription.status}}</p>
             </div>

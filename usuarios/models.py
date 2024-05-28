@@ -4,6 +4,7 @@ from django.db import models
 from djstripe.models import Subscription, Customer
 
 class CustomUser(AbstractUser):
+    telefono = models.CharField(max_length=15)
     subscription = models.ForeignKey(Subscription, null=True, blank=True, on_delete=models.SET_NULL, help_text="The user's Stripe Subscription object, if it exists")
     customer = models.ForeignKey(Customer, null=True, blank=True, on_delete=models.SET_NULL, help_text="The user's Stripe Customer object, if it exists") 
     
@@ -38,5 +39,3 @@ class CustomUser(AbstractUser):
         print(f"Publicaciones actuales: {count}")
         print(f"Publicaciones permitidas: {self.publicaciones_permitidas()}")
         return count
-
-

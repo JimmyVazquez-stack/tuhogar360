@@ -42,7 +42,7 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         user = self.request.user
         if user.is_superuser:
-            return reverse_lazy('usuarios')
+            return reverse_lazy('admin:index')
         else:
             return reverse_lazy('usuarios')
 
@@ -80,3 +80,6 @@ def accept_cookies(request):
 
 class PrivacyPolicyView(TemplateView):
     template_name = 'privacy_policy.html'
+
+class AvisoCookiesView(TemplateView):
+    template_name = "aviso-cookies.html"
