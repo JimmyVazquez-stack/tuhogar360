@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'https://tuhogar360
 
 
 
-DEBUG = False
+DEBUG = True
 # Agrega el dominio de Railway a la lista de orígenes confiables para CSRF
 CSRF_TRUSTED_ORIGINS = [RAILWAY_DOMAIN]
 
@@ -121,6 +121,7 @@ DATABASES = {
         'PORT': '38102',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

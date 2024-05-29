@@ -58,10 +58,9 @@ def subscription_confirm(request):
 @login_required
 def create_portal_session(request):
     stripe.api_key = STRIPE_SECRET_KEY
-    domain = "https://tuhogar360.up.railway.app/"
     portal_session = stripe.billing_portal.Session.create(
         customer=request.user.customer.id,
-        return_url=domain + "/perfil/",
+        return_url="https://tuhogar360.up.railway.app/perfil/"
     )
     return HttpResponseRedirect(portal_session.url)
 
