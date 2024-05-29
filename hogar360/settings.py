@@ -91,22 +91,25 @@ DATABASES = {
     }
 }
 
+'''
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 #'ENGINE': 'django.db.backends.sqlite3',
 #      'NAME': BASE_DIR / 'db.sqlite3',
+'''
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'nJJMJbTnoNKtqjcbPhVoYOYWXUSNoWnN',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '53648',
-    }
-}
-'''
+#'''
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'railway',
+#        'USER': 'postgres',
+#        'PASSWORD': 'nJJMJbTnoNKtqjcbPhVoYOYWXUSNoWnN',
+#        'HOST': 'viaduct.proxy.rlwy.net',
+#        'PORT': '53648',
+#    }
+#}
+#'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
