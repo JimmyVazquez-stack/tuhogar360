@@ -2,4 +2,5 @@ __pycache__
 staticfiles
 db.sqlite3
 media
-CPdescarga.xml
+sepomex_db.csv
+catalgo/scritps
