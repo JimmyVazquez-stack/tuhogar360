@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
 
 # Security settings
-SECURE_SSL_REDIRECT = True  # Redirigir todas las solicitudes HTTP a HTTPS
+SECURE_SSL_REDIRECT = False  # Redirigir todas las solicitudes HTTP a HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Otros ajustes de seguridad recomendados
@@ -125,9 +125,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'oyBTgRMgMeVatFVoALUbJeyIPQCCSyWN',
+        'PASSWORD': 'zsStWtPeuvsEAaODOxvWGHDxxYrGsqRC',
         'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '10063',
+        'PORT': '31819',
     }
 }
 
