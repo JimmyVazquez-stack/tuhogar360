@@ -7,6 +7,7 @@
         {{ form.as_p }}
         <button type="submit" class="search-button" ><img src="{% static 'img/R.png' %}" alt="Buscar"></button>
     </form>
+    
     <h2>Casas y Depas en Venta</h2>
 
     <div class="propiedades">
@@ -14,11 +15,17 @@
         <div class="propiedad">
             <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de la propiedad">
             <p class="descripcion">{{ propiedad.descripcion }}</p>
-            <p class="detalles">Precio: ${{ propiedad.precio }} | Área: {{ propiedad.area }} m²</p>
-            <a href="{% url 'detalles' propiedad.id %}" class="btn-ver-detalles">Ver Detalles</a>
+            <h6 class="descripcion" >Precio: {{ propiedad.precio }}</h6>
+            <h6 class="descripcion" >Área: {{ propiedad.area }} m²</h6>
+            <h6 class="descripcion" >Baños: {{ propiedad.num_baños }}</h6>
+            <h6 class="descripcion" >Habitaciones: {{ propiedad.num_habitaciones }}</h6>
+            <h6 class="descripcion" >Estado: {{ propiedad.estado }}</h6>
+            <h6 class="descripcion" >Tipo de propiedad: {{ propiedad.tipo_propiedad }}</h6>
+            <a href="{% url 'detalles_todos' propiedad.id %}" class="btn-ver-detalles">Ver Detalles</a>
         </div>
         {% endfor %}
     </div>
+    <a href="#" class="boton-verde" onclick="history.back(); return false;">Regresar</a>
 
 
     <div class="pagination">

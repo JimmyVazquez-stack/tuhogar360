@@ -17,7 +17,8 @@ class UsuariosView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        return Propiedad.objects.all().order_by('-fecha_publicacion')
+        # Filtramos solo las propiedades validadas y las ordenamos por fecha de publicación
+        return Propiedad.objects.filter(validado=True).order_by('-fecha_publicacion')
     
 
 class NosotrosView(TemplateView):

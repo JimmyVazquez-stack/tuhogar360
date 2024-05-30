@@ -22,8 +22,6 @@
                 <p><strong>Apellido:</strong> {{ perfil.last_name }}</p>
                 <p><strong>Direccion:</strong> {{ perfil.direccion }}</p>
                 <p><strong>Telefono:</strong> {{ perfil.telefono }}</p>
-                <p><strong>Fecha de Nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>
-                <p><strong>Sexo: </strong>{{ perfil.sexo }}</p>
                 <p><strong>Email: </strong> {{ perfil.email }}</p>
                 <!-- Agrega más campos según tu modelo de perfil -->
                 <a class="boton-verde" href="{% url 'editar_perfil'%}">Editar Perfil</a>
@@ -46,6 +44,8 @@
             </div>
     </fieldset>
 </div>
+
 </div>
+<a href="#" class="boton-verde" onclick="history.back(); return false;">Regresar</a>
 </main>
 {% endblock %}

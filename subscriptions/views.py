@@ -33,7 +33,6 @@ def subscription_confirm(request):
 
     # get the session id from the URL and retrieve the session object from Stripe
     session_id = request.GET.get("session_id")
-    assert session_id is not None, "session_id es None"
     session = stripe.checkout.Session.retrieve(session_id)
 
     # get the subscribing user from the client_reference_id we passed in above

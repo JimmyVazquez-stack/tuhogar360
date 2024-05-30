@@ -36,7 +36,7 @@ class PerfilForm(forms.ModelForm):
     username = forms.CharField(label='Usuario', widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = CustomUser
-        fields = [ 'username', 'first_name', 'last_name', 'email',]
+        fields = [ 'username', 'first_name', 'last_name', 'email', 'telefono']
 
     def __init__(self, *args, **kwargs):
         super(PerfilForm, self).__init__(*args, **kwargs)

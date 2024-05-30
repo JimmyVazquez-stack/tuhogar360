@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="contenedor-principal">
+    <div class="contenedor-perfil">
+    <fieldset>
+        
+        <legend>Detalles de la propiedad</legend>
+            <div class="imagen-perfil">
+                {% if propiedad.imagen_principal %}
+                <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de perfil">
+                {% else %}
+                <!-- Mostrar una imagen de placeholder si no hay imagen de perfil -->
+                <img src="https://via.placeholder.com/150" alt="Imagen de perfil">
+                {% endif %}
+            </div>
+            <div>
+                <p><strong>Propietario:</strong> {{ propiedad.usuario.username }}</p>
+                <p><strong>Direccion:</strong> {{ propiedad.direccion }}</p> 
+                <p><strong>Ciudad:</strong> {{ propiedad.ciudad }}</p>
+                <p><strong>Estado:</strong> {{ propiedad.estado }}</p>
+                <p><strong>Municipio:</strong> {{ propiedad.asentamiento }}</p>
+                <p><strong>CP:</strong> {{ propiedad.codigo_postal }}</p>
+                <p><strong>Fecha de Publicacion:</strong> {{ propiedad.fecha_publicacion }}</p>
+                <p><strong>Descripcion:</strong> {{ propiedad.descripcion}}</p>
+                <p><strong>Precio:</strong> {{ propiedad.precio }}</p>
+                <p><strong>Superficie:</strong> {{ propiedad.area }} m2</p>
+                <p><strong>Habitaciones:</strong> {{ propiedad.num_habitaciones }}</p>
+                <p><strong>Baños:</strong> {{ propiedad.num_baños }}</p>
+                <p><strong>Estacionamientos:</strong> {{ propiedad.num_estacionamientos }}</p>
+                <p><strong>Tipo de propiedad:</strong> {{ propiedad.tipo_propiedad }}</p>
+                {% if propiedad.validado %}
+                <p><strong>¿Ya esta validada?</strong> Si!</p>
+                {% else %}
+                <p><strong>¿Ya esta validada?</strong> No :c</p>
+                {% endif %}
+                
+
+                <!-- Agrega más campos según tu modelo de perfil -->
+               
+            </div>
+           
+    </fieldset>
+    
+    <a href="#" class="boton-verde" onclick="history.back(); return false;">Regresar</a>
+</div>
+</div>
+</main>
+
+{% endblock %}

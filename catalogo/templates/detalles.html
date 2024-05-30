@@ -5,35 +5,8 @@
 
 
 <body>
-    <h1>Detalles de la Propiedad</h1>
-    <main class="contenedor seccion contenido-centrado">
-        <div class="img_container">
-            <div class="resumen-propiedad">
-                <img src="{{ propiedad.imagen_principal.url }}" alt="Imagen de la propiedad">
-                <h2>{{ propiedad.direccion }}</h2>
-                <ul class="iconos-caracteristicas">
-                    <li>
-                        <img class="icono" loading="lazy" src="{% static 'img/icono_wc.svg' %}" alt="icono wc">
-                        <p>{{ propiedad.num_baños }}</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="{% static 'img/icono_estacionamiento.svg' %}"
-                            alt="icono estacionamiento">
-                        <p> {{ propiedad.num_baños }}</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="{% static 'img/icono_dormitorio.svg' %}"
-                            alt="icono habitaciones">
-                        <p>{{ propiedad.num_habitaciones }}</p>
-                    </li>
-                </ul>
-                <!-- Aquí puedes mostrar más detalles de la propiedad según tus necesidades -->
-            </div>
-        </div>
-    </main>
-</body>
 <main class="contenedor seccion contenido-centrado">
-    <h1>Casa en Venta frente al bosque</h1>
+    <h1>{{ propiedad.descripcion }}</h1>
     <!--Galeria-->
     <div class="containerg">
         <div class="img_container">
@@ -61,17 +34,17 @@
         <ul class="iconos-caracteristicas">
             <li>
                 <img class="icono" loading="lazy" src="{% static 'img/icono_wc.svg' %}" alt="icono wc">
-                <p>3</p>
+            <p> {{ propiedad.num_baños }}</p>
             </li>
             <li>
                 <img class="icono" loading="lazy" src="{% static 'img/icono_estacionamiento.svg' %}"
                     alt="icono estacionamiento">
-                <p>3</p>
+            <p> {{ propiedad.num_estacionamientos }}</p>
             </li>
             <li>
                 <img class="icono" loading="lazy" src="{% static 'img/icono_dormitorio.svg' %}"
                     alt="icono habitaciones">
-                <p>4</p>
+            <p>{{ propiedad.num_habitaciones }}</p>
             </li>
         </ul>
         <div class="title-cards">
@@ -103,12 +76,19 @@
                 </figure>
                 <div class="contenido-card">
                     <h3>DETALLES DE LA PROPIEDAD</h3>
-                    <p>-5 habitaciones.</p>
-                    <p>-3 baños completos</p>
-                    <p>-cocina integral</p>
-                    <p>-Comedor familiar</p>
-                    <p>-Sala/-Comedor</p>
-                    <p>-Cochera para 2 vehiculos</p>
+                    <p><strong>Direccion:</strong> {{ propiedad.direccion }}</p> 
+                    <p><strong>Ciudad:</strong> {{ propiedad.ciudad }}</p>
+                    <p><strong>Estado:</strong> {{ propiedad.estado }}</p>
+                    <p><strong>Municipio:</strong> {{ propiedad.asentamiento }}</p>
+                    <p><strong>CP:</strong> {{ propiedad.codigo_postal }}</p>
+                    <p><strong>Fecha de Publicacion:</strong> {{ propiedad.fecha_publicacion }}</p>
+                    <p><strong>Descripcion:</strong> {{ propiedad.descripcion}}</p>
+                    <p><strong>Precio:</strong> {{ propiedad.precio }}</p>
+                    <p><strong>Superficie:</strong> {{ propiedad.area }} m2</p>
+                    <p><strong>Habitaciones:</strong> {{ propiedad.num_habitaciones }}</p>
+                    <p><strong>Baños:</strong> {{ propiedad.num_baños }}</p>
+                    <p><strong>Estacionamientos:</strong> {{ propiedad.num_estacionamientos }}</p>
+                    <p><strong>Tipo de propiedad:</strong> {{ propiedad.tipo_propiedad }}</p>
                 </div>
             </div>
 
@@ -125,7 +105,8 @@
                     <p>-Drenaje</p>
                     <p>-0 adeudos</p>
                     <p>-Documentos en orden</p>
-                    <p>-Contacto: 246 148 1578</p>
+                    <p>-Contacto: {{ propiedad.usuario.telefono}}</p>
+                    <p>-Correo: {{ propiedad.usuario.email }}</p>
                 </div>
             </div>
         </div>
