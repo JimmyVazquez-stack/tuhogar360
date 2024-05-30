@@ -232,10 +232,11 @@ h4 {
 
 .boton-amarillo {
     background-color: #e08709;
+    width: 100%;
     color: #fff;
-    font-weight: 700;
+    font-weight: 900;
     text-decoration: none;
-    padding: 1rem 3rem;
+    padding: 0rem 0rem;
     text-align: center;
     margin-top: 2.5rem;
     display: inline-block;

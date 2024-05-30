@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'djstripe',
+    'django_filters',
 ]
 
 
@@ -117,16 +118,16 @@ DATABASES = {
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 #'ENGINE': 'django.db.backends.sqlite3',
-#      'NAME': BASE_DIR / 'db.sqlite3',
+#     'NAME': BASE_DIR / 'db.sqlite3',
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'vEftKAlQDniHOyVJfQjNjUFlaRmphTNh',
+        'PASSWORD': 'oyBTgRMgMeVatFVoALUbJeyIPQCCSyWN',
         'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '38102',
+        'PORT': '10063',
     }
 }
 

@@ -8,10 +8,32 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <button type="button" class="boton-verde" id="id_consultar_sepomex">Consultar CP</button>
+                <!-- Agrega más campos según sea necesario -->
                 <input type="submit" value="Publicar" class="boton-verde">
                 <a href="#" class="boton-naranja" onclick="history.back(); return false;">Regresar</a>
             </form>
         </fieldset>
     </div>
 </main>
+
+<script>
+    document.getElementById('id_consultar_sepomex').addEventListener('click', function() {
+        var d_codigo = document.getElementById('id_codigo_postal').value;
+        fetch('/catalogos/consulta_sepomex/?d_codigo=' + d_codigo)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('id_d_estado').value = data.d_estado;
+                    document.getElementById('id_d_ciudad').value = data.d_ciudad;
+                    document.getElementById('id_D_mnpio').value = data.D_mnpio;
+                    document.getElementById('id_d_asenta').value = data.d_asenta;
+                    // Llena otros campos según sea necesario
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    });
+    </script>
 {% endblock %}

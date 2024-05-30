@@ -36,24 +36,23 @@
 }
 
 .descripcion {
-    
-    border-radius: 5px;
+    border-radius: 0px;
     font-size: 17px;
     color: #ffffff;
-    margin-bottom: 1px;
+    margin-bottom: 10px;
 }
 
 .detalles {
-    font-size: 15px;
+    font-size: 10px;
     color: #ffffff;
-    margin-bottom: 50px; 
 }
 
+
 .btn-ver-detalles {
-    position: absolute;
+    position: relative;
     bottom: 0px;
     left: 0px;
-    width: 100%;
+    width: 50%;
     padding: 8px 16px;
     background-color: #e78b13e3;
     color: #fff;
@@ -65,10 +64,26 @@
     
 }
 
+.btn-borrar-propiedad {
+    position: relative;
+    bottom: 84px;
+    right: -150px;
+    width: 50%;
+    padding: 8px 16px;
+    background-color: #e78b13e3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0 0 5px 5px;
+    transition: background-color 0.3s;
+}
+
 .btn-ver-detalles:hover {
     background-color: #000000;
 }
 
+.btn-borrar-propiedad:hover {
+    background-color: #000000;
+}
 
 .containera {
     background-color: #ffffff;
